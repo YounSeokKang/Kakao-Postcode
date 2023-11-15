@@ -60,31 +60,31 @@
                 returnData.sido = data.sido;
                 returnData.gugun = data.sigungu;
 
-            //window.postMessageToiOS(returnData);
+            window.postMessageToiOS(returnData);
             // 좌표 가져오기
-                var url = 'https://dapi.kakao.com/v2/local/search/address.json?query=' + roadAddress;
-                $.ajax({
-                    url: url,
-                    success: function (json) {
-                        if (json.documents && json.documents.length > 0) {
-                            var x = json.documents[0].x;
-                            var y = json.documents[0].y;
-                            returnData.latitude = y;
-                            returnData.longitude = x;
-                            console.log(JSON.stringify(returnData));
+                // var url = 'https://dapi.kakao.com/v2/local/search/address.json?query=' + roadAddress;
+                // $.ajax({
+                //     url: url,
+                //     success: function (json) {
+                //         if (json.documents && json.documents.length > 0) {
+                //             var x = json.documents[0].x;
+                //             var y = json.documents[0].y;
+                //             returnData.latitude = y;
+                //             returnData.longitude = x;
+                //             console.log(JSON.stringify(returnData));
 
-                            window.postMessageToiOS(returnData);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                //             window.postMessageToiOS(returnData);
+                //         }
+                //     },
+                //     error: function (XMLHttpRequest, textStatus, errorThrown) {
 
-                    },
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader("Authorization", "KakaoAK 73b10de86269ae310a4a882751118bb7");
-                    },
-                    type: 'GET',
-                    contentType: 'json'
-                });
+                //     },
+                //     beforeSend: function (xhr) {
+                //         xhr.setRequestHeader("Authorization", "KakaoAK 73b10de86269ae310a4a882751118bb7");
+                //     },
+                //     type: 'GET',
+                //     contentType: 'json'
+                // });
             
           },
           width: "100%",
